@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: transparent !important;
+  /* Make sure our UI doesn't intercept pointer events just in case */
+  pointer-events: none;
+}
+
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.particle-segment {
+  position: absolute;
+  background-color: red ;
+  border-radius: 2px; /* Half of height to create perfect circular ends */
+  pointer-events: none;
+  /* Centers the rectangle over its 'left' and 'top' and applies rotation inline. */
+  /* Using native scale property to shrink thickness dynamically! */
+  animation: snakeShrink 1s ease-out forwards;
+  /* Add subtle shadow/glow to make the red body pop nicely */
+  box-shadow: 0 0 3px red;
+}
+
+@keyframes snakeShrink {
+  0% {
+    opacity: 1;
+    scale: 1 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 1 0;
+  }
+}
